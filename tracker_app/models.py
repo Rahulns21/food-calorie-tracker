@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 class Food(models.Model):
     class Meta:
@@ -12,3 +14,10 @@ class Food(models.Model):
     protein = models.FloatField()
     fats = models.FloatField()
     calories = models.IntegerField()
+
+class Consume(models.Model):
+    class Meta:
+        verbose_name_plural = 'Consumed'
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    food_consumed = models.ForeignKey(Food, on_delete=models.CASCADE)

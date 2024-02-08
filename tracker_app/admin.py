@@ -6,3 +6,4 @@ admin.site.site_title = 'Food Calorie Tracker'
 admin.site.index_title = 'Admin Panel'
 
 admin.site.register(Food)
+admin.site.register(Consume)
