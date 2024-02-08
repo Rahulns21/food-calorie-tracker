@@ -11,29 +11,25 @@ This is a simple web application built with Django and Bootstrap 5 to help users
 
 ## Installation
 
-1. Clone this repository:
-
+```bash
+# Clone this repository:
 git clone https://github.com/Rahulns21/food-calorie-tracker.git
 
-2 . Navigate to the project directory:
-
+# Navigate to the project directory:
 cd food-calorie-tracker
 
-4. Install dependencies:
-
+# Install dependencies:
 pip install -r requirements.txt
 
-6. Apply migrations:
-
+# Apply migrations:
 python manage.py migrate
 
-8. Run the development server:
-   
+# Run the development server:
 python manage.py runserver
 
 10. Visit `http://127.0.0.1:8000/` in your web browser to access the application.
    
-11. Visit `http://127.0.0.1:8000/admin` in your web browser to access the admin panel
+11. Visit `http://127.0.0.1:8000/admin` in your web browser to access the admin panel ```
 
 ## Usage
 
