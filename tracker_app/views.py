@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 
 def index(request):
@@ -18,3 +18,10 @@ def index(request):
     food = Food.objects.all()
     context = {'foods': food, 'consumed_food': consumed_food}
     return render(request, 'tracker_app/index.html', context=context)
+
+def delete_consume(request, id):
+    consumed_food = Consume.objects.get(id=id)
+    if request.method == 'POST':
+        consumed_food.delete()
+        return redirect('tracker_app:index')
+    return render(request, 'tracker_app/delete.html')

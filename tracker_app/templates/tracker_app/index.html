@@ -59,6 +59,7 @@
               <th>Protein</th>
               <th>Fats</th>
               <th>Calories</th>
+              <th>Remove Item</th>
             </tr>
 
             {% for consumed in consumed_food %}
@@ -68,6 +69,13 @@
               <td>{{consumed.food_consumed.protein}}g</td>
               <td>{{consumed.food_consumed.fats}}g</td>
               <td>{{consumed.food_consumed.calories}} kcal</td>
+              <td>
+                <a
+                  href="{% url 'tracker_app:delete' consumed.id %}"
+                  class="btn btn-danger btn-sm"
+                  >Remove</a
+                >
+              </td>
             </tr>
             {% endfor %}
 
@@ -77,6 +85,7 @@
               <td id="totalProtein"><b></b></td>
               <td id="totalFats"><b></b></td>
               <td id="totalCalories"><b></b></td>
+              <td></td>
             </tr>
           </table>
         </div>
@@ -130,15 +139,19 @@
     new Chart(ctx, {
       type: "doughnut",
       data: {
-        labels: ["Carbs" + " " + carbsP + "%", "Protein" + " " + proteinP + "%", "Fats" + " " + fatsP + "%"],
+        labels: [
+          "Carbs" + " " + carbsP + "%",
+          "Protein" + " " + proteinP + "%",
+          "Fats" + " " + fatsP + "%",
+        ],
         datasets: [
           {
             label: "# of Votes",
             data: [carbsP, proteinP, fatsP],
             backgroundColor: [
-              "rgba(255, 99, 132, 0.2)",
-              "rgba(54, 162, 235, 0.2)",
-              "rgba(255, 206, 86, 0.2)",
+              "rgba(255, 99, 132, 1)",
+              "rgba(54, 162, 235, 1)",
+              "rgba(255, 206, 86, 1)",
             ],
             borderColor: [
               "rgba(255, 99, 132, 1)",
